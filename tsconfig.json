@@ -1,19 +1,10 @@
 {
     "compilerOptions": {
         "rootDir": "./app",
-<<<<<<< HEAD
         "outDir": "./dist/js",
         "target": "ES6",
         "noEmitOnError": true,
         "noImplicitAny": true
     },
     "include": ["app/**/*"]
-=======
-        "outDir": "dist/js",
-        "target": "es6"
-    },
-    "include": [
-        "app/**/*"
-    ]
->>>>>>> 180d4f7c63844c3f75a68f7b50cd34a08a7de65d
 }
