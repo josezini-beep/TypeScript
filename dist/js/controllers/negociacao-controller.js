@@ -3,9 +3,15 @@ import { Negociacoes } from '../models/negociacoes.js';
 export class NegociacaoController {
     constructor() {
         this.negociacoes = new Negociacoes();
-        this.inputData = document.querySelector('#data');
-        this.inputQuantidade = document.querySelector('#quantidade');
-        this.inputValor = document.querySelector('#valor');
+        const data = document.querySelector('#data');
+        const quantidade = document.querySelector('#quantidade');
+        const valor = document.querySelector('#valor');
+        if (!data || !quantidade || !valor) {
+            throw new Error('Não foi possível encontrar os campos do formulário.');
+        }
+        this.inputData = data;
+        this.inputQuantidade = quantidade;
+        this.inputValor = valor;
     }
     adiciona() {
         const negociacao = this.criaNegociacao();
@@ -26,5 +32,6 @@ export class NegociacaoController {
         this.inputQuantidade.value = '';
         this.inputValor.value = '';
         this.inputData.focus();
+        window.alert("Enviado");
     }
 }

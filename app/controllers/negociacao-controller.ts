@@ -7,11 +7,19 @@ export class NegociacaoController {
     private inputValor: HTMLInputElement;
     private negociacoes = new Negociacoes();
 
-    constructor() {
-        this.inputData = document.querySelector('#data');
-        this.inputQuantidade = document.querySelector('#quantidade');
-        this.inputValor = document.querySelector('#valor');
+constructor() {
+    const data = document.querySelector<HTMLInputElement>('#data');
+    const quantidade = document.querySelector<HTMLInputElement>('#quantidade');
+    const valor = document.querySelector<HTMLInputElement>('#valor');
+
+    if (!data || !quantidade || !valor) {
+        throw new Error('Não foi possível encontrar os campos do formulário.');
     }
+
+    this.inputData = data;
+    this.inputQuantidade = quantidade;
+    this.inputValor = valor;
+}
 
     adiciona(): void {
         const negociacao = this.criaNegociacao();
@@ -34,5 +42,6 @@ export class NegociacaoController {
         this.inputQuantidade.value = '';
         this.inputValor.value = '';
         this.inputData.focus();
+         window.alert("Enviado")
     }
 }
